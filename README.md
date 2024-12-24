@@ -1,6 +1,6 @@
 # DigiAsset Core Installation Guide on Windows 10/11 with Hyper-V
 
-This guide will help you install and configure DigiAsset Core on a Windows 10/11 machine using Hyper-V.
+This guide will help you install and configure DigiAsset Core on a Windows 10/11 machine using Hyper-V. This is a pre-configured installation that will require minimal setup and install/configure time. This is perfect if you are a Windows user and have an extra machine sitting around and would like to participate.
 
 ## Prerequisites
 
@@ -9,7 +9,7 @@ This guide will help you install and configure DigiAsset Core on a Windows 10/11
    - At least 150GB of free disk space.
    - Administrative privileges.
 
-2. **Credentials**:
+2. **Credentials for the VM**:
    - Username: `digiasset`
    - Password: `tothemoon`
 
@@ -41,6 +41,7 @@ This guide will help you install and configure DigiAsset Core on a Windows 10/11
 
 ## Step 3: Configure Hyper-V
 
+** Note this assumses the network card name is "Ethernet"
 1. Open PowerShell as Administrator and create a virtual switch:
    ```powershell
    New-VMSwitch -Name "Lan" -NetAdapterName Ethernet -AllowManagementOS:$true
@@ -67,6 +68,7 @@ This guide will help you install and configure DigiAsset Core on a Windows 10/11
    ```bash
    showipaddr
    ```
+3. Note the internal and external IP Addresses of your system.
 
 ---
 
