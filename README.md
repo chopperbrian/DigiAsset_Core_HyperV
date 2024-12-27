@@ -21,7 +21,7 @@ This guide will help you install and configure DigiAsset Core on a Windows 10/11
 
 ## Step 1: Preparing the DigiAsset Files
 
-1. Download the `DigiAsset.zip` file from the repository.
+1. Download the `DigiAsset.zip` file from the folowing Dropbox Link - (https://www.dropbox.com/scl/fi/c3yzrag5eheb363gqsmbb/DigiAsset.zip?rlkey=becbvqya415lhuihl8efyayvb&st=iyfauste&dl=0)
 2. Extract the contents to `C:\digiasset`.
    > **Note**: Ensure the files are in the root directory `C:\` as commands depend on this location.
 3. Delete the `digiasset.zip` file after extraction to reclaim disk space.
@@ -125,5 +125,12 @@ Open the following ports on your external firewall and point them to the IP addr
 - **TCP 12024**
 
 ---
+
+## Step 9: Troubleshooting - How do I know it's working?
+
+You can SSH into the server using the local IP address and  run the following 2 commands
+
+- tail /home/digiasset/.digibyte/debug.log - This will show the activity from the DigiByte Wallet
+- tail /home/digiasset/DigiAsset_Core/bin/debug.log - This will show the activity from the DigiAsset Core Applcation 
 
 You’re all set! DigiAsset Core should now be running on your system. If you encounter any issues, refer to the [DigiAsset Core GitHub repository](https://github.com/DigiAsset-Core/DigiAsset_Core) for further assistance.
