@@ -6,7 +6,7 @@ This guide will help you install and configure DigiAsset Core on a Windows 10/11
 
 1. **System Requirements**:
    - Windows 10 or 11 with Hyper-V support.
-   - At least 150GB of free disk space.
+   - At least 150GB of free disk space but up to 1TB of space could be required.
    - Administrative privileges.
 
 2. **Credentials for the VM**:
@@ -23,7 +23,7 @@ This guide will help you install and configure DigiAsset Core on a Windows 10/11
 
 1. Download the `DigiAsset.zip` file from the folowing Dropbox Link - (https://www.dropbox.com/scl/fi/c3yzrag5eheb363gqsmbb/DigiAsset.zip?rlkey=becbvqya415lhuihl8efyayvb&st=iyfauste&dl=0)
 2. Extract the contents to `C:\digiasset`.
-   > **Note**: Ensure the files are in the root directory `C:\` as commands depend on this location.
+   > **Note**: Ensure the files are in the root directory `C:\digiasset` as commands depend on this location.
 3. Delete the `digiasset.zip` file after extraction to reclaim disk space.
 
 ---
@@ -82,7 +82,7 @@ This guide will help you install and configure DigiAsset Core on a Windows 10/11
 
 ---
 
-## Step 6: Run DigiAsset Core
+## Step 6: Run DigiAsset Core to start the Configuration Wizard
 
 1. Navigate to the DigiAsset Core directory:
    ```bash
@@ -106,7 +106,7 @@ Follow the prompts in the configuration wizard:
    - Password: `pass11`
 2. **IPFS**:
    - Running locally: `Y`
-3. **DigiByte Address**:
+3. **DigiByte Address - This is the address you want your payments to goto**:
    - Example: `D6oEbszUbYBjiY6BeVW6g8cSTmkY7TahXA`
 4. **Pruning Mode**:
    - Recommended: `Y`
@@ -114,6 +114,11 @@ Follow the prompts in the configuration wizard:
    - From IPFS: `Y`
 6. **Allow All RPC Commands**:
    - Recommended: `Y`
+
+Once the config is finished, run the following command:
+   ```bash
+   sudo reboot
+   ```
 
 ---
 
@@ -128,7 +133,12 @@ Open the following ports on your external firewall and point them to the IP addr
 
 ## Step 9: Troubleshooting - How do I know it's working?
 
-You can SSH into the server using the local IP address and  run the following 2 commands
+You can SSH into the server using the local IP address and  run the following 2 commands to check the log files. NOTE: You will need to enable logging and reboot to get logging information for DigiAsset Core
+
+- pico /home/digiasset/DigiAsset_Core/bin/config.cfg
+- add the following line at the end of the file. Then exit and save.
+- logfile=0
+- sudo reboot
 
 - tail /home/digiasset/.digibyte/debug.log - This will show the activity from the DigiByte Wallet
 - tail /home/digiasset/DigiAsset_Core/bin/debug.log - This will show the activity from the DigiAsset Core Applcation 
